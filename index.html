@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آکادمی فیزیک | دانش بنیادین هستی / محمد جعفر افرازه</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fa;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        .top-bar {
+            background-color: #1a237e;
+            color: white;
+            padding: 8px 0;
+            font-size: 0.9rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .contact-info span {
+            margin-left: 20px;
+        }
+
+        .contact-info i {
+            margin-left: 5px;
+        }
+
+        .social-icons a {
+            color: white;
+            margin-right: 15px;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .social-icons a:hover {
+            opacity: 0.8;
+        }
+
+        /* Main Header */
+        .main-header {
+            background: linear-gradient(135deg, #283593 0%, #3949ab 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 2.2rem;
+            font-weight: 300;
+            margin-bottom: 5px;
+        }
+
+        .logo p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        .search-box {
+            display: flex;
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            width: 300px;
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            padding: 10px 15px;
+            outline: none;
+            font-size: 0.95rem;
+        }
+
+        .search-box button {
+            background: #ffb74d;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .search-box button:hover {
+            background: #ffa726;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li a {
+            display: block;
+            padding: 15px 25px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        nav ul li a:hover {
+            color: #1a237e;
+            border-bottom-color: #1a237e;
+            background-color: #f5f5f5;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100"><circle cx="50" cy="50" r="40" stroke="white" stroke-width="2" fill="none" stroke-dasharray="5,5"/><circle cx="50" cy="50" r="20" stroke="white" stroke-width="2" fill="none"/><line x1="50" y1="10" x2="50" y2="90" stroke="white" stroke-width="2"/><line x1="10" y1="50" x2="90" y2="50" stroke="white" stroke-width="2"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #ffb74d;
+            color: #333;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255,183,77,0.4);
+        }
+
+        /* Featured Sections */
+        .featured {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #1a237e;
+            margin-bottom: 40px;
+            font-weight: 300;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: #ffb74d;
+            margin: 15px auto 0;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .card-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .card-img i {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4rem;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-content h3 {
+            color: #1a237e;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .card-content p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .read-more {
+            color: #ffb74d;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            transition: color 0.3s;
+        }
+
+        .read-more:hover {
+            color: #ffa726;
+        }
+
+        /* Scientists Section */
+        .scientists {
+            background-color: #e8eaf6;
+            padding: 60px 0;
+        }
+
+        .scientist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .scientist-card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .scientist-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .scientist-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: #1a237e;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .scientist-img i {
+            font-size: 5rem;
+            color: white;
+        }
+
+        .scientist-card h3 {
+            color: #1a237e;
+            margin-bottom: 5px;
+        }
+
+        .scientist-card .era {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .scientist-card p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        /* Fundamentals Section */
+        .fundamentals {
+            padding: 60px 0;
+            background: white;
+        }
+
+        .fund-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .fund-item {
+            background: #f5f7fa;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            transition: background 0.3s;
+        }
+
+        .fund-item:hover {
+            background: #e8eaf6;
+        }
+
+        .fund-item i {
+            font-size: 2.5rem;
+            color: #1a237e;
+            margin-bottom: 15px;
+        }
+
+        .fund-item h4 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .fund-item p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Newsletter */
+        .newsletter {
+            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .newsletter h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .newsletter p {
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        .newsletter-form button {
+            padding: 15px 30px;
+            background: #ffb74d;
+            border: none;
+            border-radius: 0 30px 30px 0;
+            color: #333;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background: #ffa726;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0d1642;
+            color: white;
+            padding: 40px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h4::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 2px;
+            background: #ffb74d;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: #b0bec5;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+        }
+
+        .footer-section p {
+            color: #b0bec5;
+            margin-bottom: 10px;
+        }
+
+        .footer-section i {
+            margin-left: 10px;
+            color: #ffb74d;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #b0bec5;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-header .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo {
+                margin-bottom: 15px;
+            }
+
+            .search-box {
+                width: 100%;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li a {
+                padding: 12px 15px;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .newsletter-form input {
+                border-radius: 30px;
+                margin-bottom: 10px;
+                width: 100%;
+            }
+
+            .newsletter-form button {
+                border-radius: 30px;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <span><i class="fas fa-phone"></i> </span>
+                <span><i class="fas fa-envelope"></i> </span>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-telegram"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <h1>آکادمی فیزیک</h1>
+                <p>دانش بنیادین هستی</p>
+            </div>
+            <div class="search-box">
+                <input type="text" placeholder="جستجوی مفاهیم، فیزیکدانان، مقالات...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#">صفحه اصلی</a></li>
+                <li><a href="#">مبانی فیزیک</a></li>
+                <li><a href="#">فیزیکدانان</a></li>
+                <li><a href="#">مقالات</a></li>
+                <li><a href="#">ویدئوها</a></li>
+                <li><a href="#">آزمایشگاه مجازی</a></li>
+                <li><a href="#">تماس با ما</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>از ذرات بنیادی تا کهکشان‌ها</h2>
+            <p>با ما به سفری شگفت‌انگیز در دنیای فیزیک بپیوندید. از قوانین نیوتن تا نظریه نسبیت اینشتین، از مکانیک کوانتوم تا کیهان‌شناسی</p>
+            <a href="#" class="btn">شروع یادگیری</a>
+        </div>
+    </section>
+
+    <!-- Featured Sections -->
+    <section class="featured">
+        <div class="container">
+            <h2 class="section-title">دسته‌بندی موضوعات</h2>
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-img" style="background-color: #1a237e;">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>فیزیک کلاسیک</h3>
+                        <p>مکانیک نیوتنی، ترمودینامیک، الکترومغناطیس و اپتیک - مبانی دنیای فیزیک</p>
+                        <a href="#" class="read-more">بیشتر بدانید <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img" style="background-color: #283593;">
+                        <i class="fas fa-quantum"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>فیزیک مدرن</h3>
+                        <p>نسبیت، مکانیک کوانتومی، فیزیک ذرات بنیادی و کیهان‌شناسی</p>
+                        <a href="#" class="read-more">بیشتر بدانید <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img" style="background-color: #303f9f;">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>آزمایشگاه</h3>
+                        <p>آزمایش‌های عملی، شبیه‌سازی‌های تعاملی و پروژه‌های علمی</p>
+                        <a href="#" class="read-more">بیشتر بدانید <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scientists Section -->
+    <section class="scientists">
+        <div class="container">
+            <h2 class="section-title">فیزیکدانان برجسته</h2>
+            <div class="scientist-grid">
+                <div class="scientist-card">
+                    <div class="scientist-img">
+                        <i class="fas fa-user-astronaut"></i>
+                    </div>
+                    <h3>آلبرت اینشتین</h3>
+                    <div class="era">۱۸۷۹-۱۹۵۵</div>
+                    <p>نظریه‌پرداز نسبیت و یکی از تأثیرگذارترین فیزیکدانان تاریخ</p>
+                    <a href="#" class="read-more">زندگی‌نامه</a>
+                </div>
+
+                <div class="scientist-card">
+                    <div class="scientist-img">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>آیزاک نیوتن</h3>
+                    <div class="era">۱۶۴۳-۱۷۲۷</div>
+                    <p>پدر فیزیک کلاسیک، واضع قوانین حرکت و گرانش</p>
+                    <a href="#" class="read-more">زندگی‌نامه</a>
+                </div>
+
+                <div class="scientist-card">
+                    <div class="scientist-img">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>نیکولا تسلا</h3>
+                    <div class="era">۱۸۵۶-۱۹۴۳</div>
+                    <p>پیشگام در مهندسی برق و فیزیک الکترومغناطیس</p>
+                    <a href="#" class="read-more">زندگی‌نامه</a>
+                </div>
+
+                <div class="scientist-card">
+                    <div class="scientist-img">
+                        <i class="fas fa-user-nurse"></i>
+                    </div>
+                    <h3>ماری کوری</h3>
+                    <div class="era">۱۸۶۷-۱۹۳۴</div>
+                    <p>پیشگام در فیزیک هسته‌ای و پرتوشناسی، برنده دو جایزه نوبل</p>
+                    <a href="#" class="read-more">زندگی‌نامه</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fundamentals Section -->
+    <section class="fundamentals">
+        <div class="container">
+            <h2 class="section-title">مبانی فیزیک</h2>
+            <div class="fund-grid">
+                <div class="fund-item">
+                    <i class="fas fa-arrows-alt"></i>
+                    <h4>مکانیک</h4>
+                    <p>حرکت، نیرو، انرژی و قوانین نیوتن</p>
+                </div>
+                <div class="fund-item">
+                    <i class="fas fa-bolt"></i>
+                    <h4>الکتریسیته</h4>
+                    <p>بار الکتریکی، میدان‌ها و مدارها</p>
+                </div>
+                <div class="fund-item">
+                    <i class="fas fa-magnet"></i>
+                    <h4>مغناطیس</h4>
+                    <p>میدان مغناطیسی، القا و الکترومغناطیس</p>
+                </div>
+                <div class="fund-item">
+                    <i class="fas fa-sun"></i>
+                    <h4>ترمودینامیک</h4>
+                    <p>گرما، دما و قوانین ترمودینامیک</p>
+                </div>
+                <div class="fund-item">
+                    <i class="fas fa-wave-square"></i>
+                    <h4>موج و ارتعاش</h4>
+                    <p>امواج مکانیکی، صوت و نور</p>
+                </div>
+                <div class="fund-item">
+                    <i class="fas fa-globe"></i>
+                    <h4>کیهان‌شناسی</h4>
+                    <p>مهبانگ، سیاهچاله‌ها و ساختار جهان</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <h3>به جمع علاقه‌مندان فیزیک بپیوندید</h3>
+            <p>با عضویت در خبرنامه، از جدیدترین مقالات، ویدئوها و رویدادهای علمی باخبر شوید</p>
+           
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>درباره ما</h4>
+                   
+                      <p>آکادمی فیزیک با هدف ترویج دانش فیزیک و ایجاد پلی بین مفاهیم پایه‌ای و پیشرفته برای علاقه‌مندان به این علم بنیادین تأسیس شده است.</p>
+                     <h1>سایت توسط محمد جعفر افرازه نوشته شده است</h1>
+                    </div>
+                <div class="footer-section">
+                    <h4>دسترسی سریع</h4>
+                    <ul>
+                        <li><a href="#">صفحه اصلی</a></li>
+                        <li><a href="#">مقالات</a></li>
+                        <li><a href="#">ویدئوها</a></li>
+                        <li><a href="#">آزمایشگاه مجازی</a></li>
+                        <li><a href="#">پرسش‌های متداول</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>ارتباط با ما</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> گرمسار</p>
+                    <p><i class="fas fa-phone"></i> telegram ID: @AfrazehW</p>
+                    <p><i class="fas fa-envelope"></i> وجود ندارد</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>تمامی حقوق برای آکادمی فیزیک محفوظ است &copy;   2026, 1404</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Font Awesome for some missing icons -->
+    <script>
+        // This is just to handle any potential font-awesome issues
+        document.addEventListener('DOMContentLoaded', function() {
+            // Optional: Add any interactive features
+            console.log('سایت آکادمی فیزیک آماده است');
+        });
+    </script>
+</body>
+</html>
